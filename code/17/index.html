@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九宫格抽奖</title>
+    <link rel="stylesheet" href="./common/css/swiper.min.css">
+    <link rel="stylesheet" href="./common/css/common_mobile.css?version=1.0.0">
+    <link rel="stylesheet" href="css/index.css?version=1.0.0">
+    <!-- 移动端适配 -->
+    <script>
+        var html = document.querySelector('html');
+        changeRem();
+        window.addEventListener('resize', changeRem);
+
+        function changeRem() {
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width / 10 + 'px';
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrap">
+    <!--<p class="time">3.10-3.25</p>-->
+    <!--&lt;!&ndash;星星&ndash;&gt;-->
+    <!--<div class="stars-box">-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span class="stars"></span>&ndash;&gt;-->
+    <!--</div>-->
+    <!--主体-->
+    <div class="success">
+        <div class="logo">
+            <img src="image/success-logo.png" alt="">
+            <p>支付成功</p>
+        </div>
+        <button>返回</button>
+
+    </div>
+    <div class="main">
+        <p class="rule">抽奖规则</p>
+        <!--<a id="myWin">-->
+            <!--<p class="my"></p>-->
+        <!--</a>-->
+        <!--游戏区域-->
+        <div class="box">
+            <!--<span class="coin"></span>-->
+            <h2>您今日还有 <span id="change"> 3 </span> 次抽奖机会</h2>
+            <ul class="light clearfix">
+                <li class="fl">
+                    <p></p>
+                    <p class="blin"></p>
+                    <p></p>
+                    <p class="blin"></p>
+                </li>
+                <li class="fr">
+                    <p class="blin"></p>
+                    <p></p>
+                    <p class="blin"></p>
+                    <p></p>
+                </li>
+            </ul>
+            <!--九宫格-->
+            <ul class="play clearfix">
+                <li class="prize select">
+                    <div>
+                        <img src="./common/image/icon/box1.png">
+                        <p>iPad mini</p>
+                    </div>
+                </li>
+                <li class="prize">
+                    <div>
+                        <img src="./common/image/icon/box2.png">
+                        <p>购物券</p>
+                    </div>
+                </li>
+                <li class="prize">
+                    <div>
+                        <img src="./common/image/icon/box3.png">
+                        <p>拍立得</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="./common/image/icon/box0.png">
+                        <p>谢谢参与</p>
+                    </div>
+                </li>
+                <!--开始按钮-->
+                <li id="btn"></li>
+                <!--开始按钮-->
+                <li class="prize">
+                    <div>
+                        <img src="./common/image/icon/box4.png">
+                        <p>豪华礼包</p>
+                    </div>
+                </li>
+                <li class="prize">
+                    <div>
+                        <img src="./common/image/icon/box5.png">
+                        <p>88元现金红包</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="./common/image/icon/box0.png">
+                        <p>谢谢参与</p>
+                    </div>
+                </li>
+                <li class="prize">
+                    <div>
+                        <img src="./common/image/icon/box6.png">
+                        <p>100元购物卡</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--奖品展示-->
+        <!--<div class="awards">-->
+            <!--&lt;!&ndash;<div class="swiper-container">&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul class="swiper-wrapper">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="swiper-slide">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="./common/image/icon/drag/drag1.png">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="swiper-slide">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="./common/image/icon/drag/drag2.png">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="swiper-slide">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="./common/image/icon/drag/drag3.png">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="swiper-slide">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="./common/image/icon/drag/drag4.png">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="swiper-slide">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img src="./common/image/icon/drag/drag5.png">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+    </div>
+    <!--游戏规则弹窗-->
+    <div id="mask-rule">
+        <div class="box-rule">
+            <span class="star"></span>
+            <h2>活动规则说明</h2>
+            <span id="close-rule"></span>
+            <div class="con">
+                <div class="text">
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                    <p>活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明活动规则说明</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--中奖提示-->
+    <div id="mask">
+        <div class="blin"></div>
+        <div class="caidai"></div>
+        <div class="winning">
+            <div class="red-head"></div>
+            <div class="red-body"></div>
+            <div id="card">
+                <!--成功-->
+                <div class="win" style="display: none;">
+                    <input type="text" placeholder="请输入您的姓名">
+                    <input type="text" placeholder="请输入您的联系方式">
+                </div>
+                <!--失败-->
+                <div class="lose">
+                    <img src="./image/thanks-logo.png" alt="">
+                </div>
+            </div>
+            <a href="" target="_self" class="btn"></a>
+            <span id="close"></span>
+            <!--失败的按钮-->
+            <div class="lose-btn">
+                <p class="txt-none"></p>
+                <p class="txt-btn">我知道了</p>
+            </div>
+            <!--输入错误号码提示-->
+            <p class="tips" style="display: none;">号码格式错误</p>
+        </div>
+    </div>
+</div>
+
+<script src="./common/js/jquery.min.js"></script>
+<script src="./common/js/swiper.jquery.min.js"></script>
+<script src="./common/js/h5_game_common.js?version=1.0.0"></script>
+<script src="js/index.js?version=1.0.0"></script>
+</body>
+</html>

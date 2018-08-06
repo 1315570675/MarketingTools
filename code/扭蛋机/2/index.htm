@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<link>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>扭蛋机</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<link rel="icon" href="https://static.qianmaiapp.com/iad/img/favicon.ico" type="image/x-icon">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<link href="./css/app.css" rel="stylesheet">
+	<link href="./css/index.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+	<div class="game_niudan">
+		<div class="top_buttons">
+			<div class="btn-wrapper">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+		</div>
+		<div class="machine">
+			<div class="tube_b"></div>
+			<div class="ball-wrapper">
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style="display: none;"></div>
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style=""></div>
+				<div class="ball ball_" style=""></div>
+			</div>
+			<div class="tube_f"></div>
+			<div class="box bottom_b"></div>
+			<div class="box bottom_f"></div>
+
+			<div style="display: none;">
+				<div class="dot small"></div>
+				<div class="hand-box small"></div>
+			</div>
+			<div class="box egg_box_b">
+				<div class="text"><span>剩余次数:15次</span></div>
+			</div>
+			<div class="lucky-switch">
+				<div class="knob-bg">
+					<div class="knob"></div>
+				</div>
+			</div>
+			<div id="clickHead">
+				<div class="dot"></div>
+				<div class="hand-box"></div>
+			</div>
+			<div class="box egg_box_f"></div>
+		</div>
+
+		<div class="verification-code">
+			<div class="center-code">
+				<div id="verification-code" style="width: 351.9px;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script>
+	var timerId;
+	var isClick = false;
+	$(".lucky-switch").click(function () {
+		if (!isClick)
+		{
+			$('#clickHead').css('display', 'none');
+			$('.knob').addClass('twist');
+
+			isClick = true;
+			timerId = setInterval(() => {
+				var ballList = $('.ball');
+
+				for (var i = 0; i < ballList.length; i++)
+				{
+					$('.ball').eq(i).removeClass().addClass('ball bouncing ball_' + (parseInt(Math.random() * 9) + 1));
+
+				}
+				setTimeout(() => {
+					$('.ball').removeClass().addClass('ball bouncing ball_')
+				}, 200)
+			}, 400)
+
+			setTimeout(() => {
+				clearInterval(timerId);
+			}, 3800)
+			setTimeout(() => {
+				$('.knob').removeClass('twist');
+
+				$('.ball').eq(2).css('display', 'block').removeClass().addClass('ball active');
+			}, 4000)
+			setTimeout(() => {
+				isClick = false;
+				$('#clickHead').css('display', 'block');
+			}, 7000)
+		}
+	});
+
+
+</script>
+</html>
